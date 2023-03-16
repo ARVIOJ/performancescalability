@@ -1,0 +1,64 @@
+---
+import { Icon } from "astro-icon";
+import ContentSection from "~/components/content-section.astro";
+import type { FeatureItem } from "~/types";
+
+const features: Array<FeatureItem> = [
+  {
+    title: "Why perform resistance tests?",
+    description:
+      "The main purpose of performing this test is to identify potential memory leaks. So during this test,memory utilization is closely monitored A memory leak is a failure in a software program to free discarded memory, resulting in a poor performance or failure A memory leak may not have an impact in the short term, but in the long term, it slows down the system, which leaves no free memory and thus ultimately leads to application or system crash.",
+    icon: "mdi:handshake",
+  },
+  {
+    title: "Duration of a resistance test",
+    description:
+      "If it is a 24/7 non-stop operation project, Ideally, an endurance test should be carried out for 72 hours.",
+    icon: "mdi:clock-alert",
+  },
+  {
+    title: "Benefits of Endurance Testing",
+    description:
+      "Ensures the suitability of an application, Makes the app robust, checks the sustainability of the system over time.",
+    icon: "mdi:thumb-up",
+  },
+  {
+    title: "Challenges in endurance tests",
+    description:
+      "It is one that consumes a lot of time, cannot be done manually, it is often difficult to determine how much load is worth applying, client observes unhandled exceptions.",
+    icon: "mdi:swap-horizontal",
+  },
+  {
+    title: "Steps to perform this test",
+    description:
+      "Set up test environment, Creation of a test plan and test scenarios,Estimated test cycle, Risk analysis, Test program, Execution of the test, Closing of the test cycle",
+    icon: "mdi:shoe-print",
+  },
+
+];
+---
+
+<ContentSection title="What is the endurance test?" id="endurance">
+  <Fragment slot="lead">
+
+    The word Endurance means 'the ability of something to <span class="text-primary">last or resist wear and tear</span>'.
+    You can simply call <span class="text-primary">it durability</span>, lasting power, or longevity. <br>
+    When it comes to the world of software, the endurance test (soak test or longevity test or capacity test)
+    It is a type of <span class="text-primary">non-functional test</span> that is performed to verify whether the software system can withstand an expected high load.
+    continued for a <span class="text-primary"> long period of time</span>.
+
+  </Fragment>
+  <ul class="grid max-w-6xl grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+    {
+      features.map(({ title, description, icon }) => (
+        <li class="flex flex-col items-center gap-4 border border-default bg-offset p-6">
+          <div class="h-16 w-16 rounded-full border-2 border-current p-3">
+            <Icon name={icon} />
+          </div>
+          <p class="text-center font-extrabold text-xl">{title}</p>
+          <p class="text-center text-offset text-sm">{description}</p>
+        </li>
+      ))
+    }
+  </ul>
+</ContentSection>

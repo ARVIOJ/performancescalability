@@ -1,0 +1,47 @@
+---
+import { Icon } from "astro-icon";
+import ContentSection from "~/components/content-section.astro";
+import type { FeatureItem } from "~/types";
+
+const featuresTwo: Array<FeatureItem> = [
+  {
+    title: "Objective of scalability testing",
+    description:
+      "The objective of scalability testing is: To determine how the application scales with increasing workload, To determine the user limit for the software product, To determine client-side degradation and end-user experience under load, To determine the robustness and server-side degradation.",
+    icon: "mdi:eye-check",
+  },
+  {
+    title: "Applications for performance testing",
+    description:
+      "The most common applications for stress testing are Apache JMeter, LoadRunner, Gatling, among others.",
+    icon: "mdi:application-brackets",
+  },
+  {
+    title: "Why use Gatling",
+    description:
+      "Gatling is an open source performance and load testing tool that can be used to evaluate the performance of web applications. Among the advantages of using Gatling for testing are: Scalability, intuitive and easy-to-use, detailed reports",
+    icon: "mdi:head-question",
+  },
+  
+];
+---
+
+<ContentSection title="What are scalability tests?" id="scalability">
+  <Fragment slot="lead">
+    Scalability tests analyze how the <span class="text-primary">system scales up</span>. It indicates, for example, how many more <span class="text-primary">users we can support</span> by adding another application server, or time improvements when we add more CPU to the database server. This type of performance testing should be <span class="text-primary">performed during the development cycle</span> or before the product release, in order to detect problems before the end user himself.
+
+  </Fragment>
+  <ul class="grid max-w-6xl grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+    {
+      featuresTwo.map(({ title, description, icon }) => (
+        <li class="flex flex-col items-center gap-4 border border-default bg-offset p-6">
+          <div class="h-16 w-16 rounded-full border-2 border-current p-3">
+            <Icon name={icon} />
+          </div>
+          <p class="text-center font-extrabold text-xl">{title}</p>
+          <p class="text-center text-offset text-sm">{description}</p>
+        </li>
+      ))
+    }
+  </ul>
+</ContentSection>
